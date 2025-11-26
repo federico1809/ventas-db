@@ -1,8 +1,8 @@
-Proyecto de Análisis de Comportamiento de Clientes (VentasDB)
+📊 Proyecto de Análisis de Comportamiento de Clientes (VentasDB)
 
-Este repositorio contiene los scripts SQL desarrollados para la base de datos VentasDB con el objetivo de explorar, transformar y preparar datos de clientes y órdenes. El análisis está enfocado en generar features que permitan optimizar decisiones de negocio en áreas como marketing, gestión de productos y retención de clientes.
+Este repositorio contiene los scripts SQL desarrollados para la base de datos VentasDB con el objetivo de explorar, transformar y preparar datos de clientes y órdenes.
 
-Entorno y Tecnología
+🚀 Entorno y Tecnología
 
 Motor de Base de Datos: PostgreSQL
 
@@ -10,9 +10,9 @@ Cliente SQL: DBeaver
 
 Base de Datos Inicial: VentasDB (Cargada con VentasDB_inicial.sql)
 
-Secciones de la Tarea
+🎯 Scripts de Análisis y Transformación
 
-La tarea se dividió en cuatro áreas clave del manejo de datos con SQL:
+La tarea se dividió en cuatro áreas clave del manejo de datos con SQL, más una sección de desafíos avanzados (Extra Mile).
 
 1. Manipulación de Datos Temporales y Textuales
 
@@ -36,7 +36,7 @@ SPLIT_PART() (PostgreSQL)
 
 03_detectar_outliers.sql
 
-Detectar y cuantificar correos con formato anómalo (sin '@' o con espacios).
+Detectar y cuantificar correos con formato anómalo.
 
 LIKE, NOT LIKE, COUNT()
 
@@ -68,6 +68,8 @@ STDDEV_POP()
 
 3. Consultas Compuestas y Relaciones (Set Operators)
 
+Esta sección utiliza los operadores de conjunto (UNION, INTERSECT, EXCEPT) para realizar análisis de solapamiento y exclusión entre grupos de clientes.
+
 Archivo
 
 Objetivo
@@ -76,25 +78,25 @@ Operador Clave
 
 07_listar_compras_join.sql
 
-Reporte simple de todas las compras con detalles de cliente y producto.
+Reporte simple de todas las compras.
 
 JOIN
 
 08_clientes_intersect.sql
 
-Clientes que compraron productos de la Categoría A Y de la Categoría B.
+Clientes que compraron Categoría A Y Categoría B.
 
 INTERSECT
 
 09_clientes_union.sql
 
-Clientes que compraron productos de la Categoría A O de la Categoría B.
+Clientes que compraron Categoría A O Categoría B.
 
 UNION
 
 10_clientes_except.sql
 
-Clientes que compraron de la Categoría A PERO NO de la Categoría B.
+Clientes que compraron Categoría A PERO NO Categoría B.
 
 EXCEPT
 
@@ -114,7 +116,7 @@ CREATE INDEX
 
 12_definir_fk_logs.sql
 
-Definir una clave foránea en audit_logs para asegurar la referencia de user_info a customers.email.
+Definir una clave foránea en audit_logs para asegurar la referencia de usuarios.
 
 ALTER TABLE ADD CONSTRAINT FOREIGN KEY
 
@@ -122,15 +124,15 @@ ALTER TABLE ADD CONSTRAINT FOREIGN KEY
 
 Crear un mecanismo automático para auditar intentos de inserción con quantity <= 0.
 
-TRIGGER (BEFORE INSERT) y FUNCTION
+TRIGGER y FUNCTION
 
 14_transaccion_rollback.sql
 
-Demostración de control de consistencia de datos.
+Demostración del control de consistencia de datos, revirtiendo inserciones con ROLLBACK.
 
 BEGIN; ... ROLLBACK;
 
-Secciones Extra Mile
+✨ Secciones Extra Mile (Desafíos Avanzados)
 
 Archivo
 
@@ -140,18 +142,18 @@ Técnica Avanzada
 
 15_vista_ventas_trimestre.sql
 
-Simplificar reportes creando una vista dinámica de ventas por trimestre.
+Crear un reporte dinámico de ventas por trimestre.
 
-CREATE VIEW (EXTRACT(QUARTER))
+CREATE VIEW, EXTRACT(QUARTER)
 
 16_funcion_segmentacion.sql
 
-Clasificar clientes en segmentos ("Frecuente", "Ocasional", "Nuevo") usando lógica de negocio.
+Clasificar clientes en segmentos ("Frecuente", "Ocasional", "Nuevo").
 
 UDF (CREATE FUNCTION con plpgsql)
 
 17_insert_data_ia.sql
 
-Simulación de la inserción de nuevos registros generados de forma limpia para evitar outliers.
+Simulación de la inserción de nuevos registros limpios y su documentación.
 
 Inserción de prueba y Documentación de Ajustes.
